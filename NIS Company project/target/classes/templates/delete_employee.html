@@ -1,0 +1,43 @@
+<!--UWI: 813117991 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Employee</title>
+
+<style type="text/css">
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    
+</style>
+</head>
+<body>
+	<div align="center">
+		<h1>Delete Employee</h1>
+		<hr/>
+		<br>
+		<br>
+		<p><b>Please Enter the Employee ID of the employee to be deleted.</b></p>
+		
+    <form action="#"  th:action="@{/delete/${employee.id}}"  method="post" th:object="${employee}">
+        
+        <label>Employee ID:</label>
+        <input type="number" th:name="id" th:field="*{id}" pattern="[0-9]" required /><br/>
+    
+        <br>
+        <br>
+        <button type="submit" >Delete</button>
+        <br> 
+    </form>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a href="/homepage">Click here to return to home page</a>
+	</div>
+</body>
+</html>

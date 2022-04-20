@@ -1,0 +1,84 @@
+<!--UWI: 813117991 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Registration</title>
+
+<style type="text/css">
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    input[type=text] ,input[type=password], select {
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }  
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+
+</head>
+
+<body>
+<div align="center">
+    <h1>Edit Form</h1>
+    <hr/>
+    <p><b> Please change the details for the employee.</b></p>
+    <form action="#" th:action="@{/search}" method="post" th:object="${employee}">
+        
+        <label>Employee ID:</label>
+        <input type="text" th:field="*{id}" readonly=readonly /><br/>
+        
+        <label>First Name:</label>
+        <input type="text" th:field="*{fname}" pattern="[a-zA-Z]+" maxlength="20"  title="Only letters allowed."/><br/>
+ 		
+ 		
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lname}" pattern="[a-zA-Z]+" maxlength="20"  title="Only letters allowed." /><br/>
+ 
+        <label>NIS number:</label>
+        <input type="text" th:field="*{nis_num}" pattern="[0-9]*" maxlength="8" title="Only numbers allowed." /><br/>
+        <div><p th:if="${#fields.hasErrors('nis_num')}">NIS number cannot be blank or contain numbers.</p> </div>
+        
+        <label>Week 1 Figure:</label>
+        <input type="text" th:field="*{Week1}" min="0.00" max="10000.00" step="0.01" maxlength="7"  title="Only numbers allowed." /><br/>
+        <div><p th:if="${#fields.hasErrors('Week1')}">Only Numbers Allowed.</p> </div>
+        
+        <label>Week 2 Figure:</label>
+        <input type="text" th:field="*{Week2}" min="0.00" max="10000.00" step="0.01" maxlength="7"  title="Only numbers allowed." /><br/>
+        <div><p th:if="${#fields.hasErrors('Week2')}">Only Numbers Allowed.</p> </div>
+        
+        <label>Week 3 Figure:</label>
+        <input type="text" th:field="*{Week3}" min="0.00" max="10000.00" step="0.01" maxlength="7"  title="Only numbers allowed." /><br/>
+        <div><p th:if="${#fields.hasErrors('Week3')}">Only Numbers Allowed.</p> </div>
+        
+        <label>Week 4 Figure:</label>
+        <input type="text" th:field="*{Week4}" min="0.00" max="10000.00" step="0.01" maxlength="7"  title="Only numbers allowed." /><br/>
+        <div><p th:if="${#fields.hasErrors('Week4')}">Only Numbers Allowed.</p> </div>
+        
+        <label>Week 5 Figure:</label>
+        <input type="text" th:field="*{Week5}" min="0.00" max="10000.00" step="0.01" maxlength="7"  title="Only numbers allowed." /><br/>
+        <div><p th:if="${#fields.hasErrors('Week5')}">Only Numbers Allowed.</p> </div>
+ 
+        <button type="submit">Edit</button>    
+    </form>
+    
+   <br>
+   <a href="javascript:history.back()">Back to previous page</a>
+   <br>
+   <br>
+    <a href="/homepage">Click here to return to homepage</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!--UWI: 813117991 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Delete Employee</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Employee to be Deleted</h1>
+
+		<a href="/register">Add New Employee</a>
+
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Employee ID</th>
+					<th>Employee First Name</th>
+					<th>Employee Last Name</th>
+					<th>NIS number</th>
+					<th>Salary</th>
+					<th>Created Date</th>
+					<th>Updated Date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="listep : ${listemployee}">
+					<td th:text="${listep.id}">Employee ID</td>
+					<td th:text="${listep.fname}">First Name</td>
+					<td th:text="${listep.lname}">Last Name</td>
+					<td th:text="${listep.nis_num}">NIS Number</td>
+					<td th:text="${listep.Week1}">Week 1</td>
+					<td th:text="${listep.Week2}">Week 2</td>
+					<td th:text="${listep.Week3}">Week 3</td>
+					<td th:text="${listep.Week4}">Week 4</td>
+					<td th:text="${listep.Week5}">Week 5</td>
+					<td th:text="${listep.createdAt}">created at</td>
+					<td th:text="${listep.updatedAt}">created at</td>
+					<td>					
+						&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/delete/' + ${listep.id}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<a href="/homepage">Click here to return to home page</a>
+	</div>
+</body>
+</html>
